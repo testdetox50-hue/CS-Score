@@ -45,7 +45,10 @@ function reducer(state: State, action: Action): State {
         ),
       };
     case "filter":
-      ret
+      return { ...state, filter: action.status };
+  }
+}
+
 export function HotelForm({ heading = "Hotel Form", initialItems = [], onSelect }: HotelFormProps) {
   const [state, dispatch] = useReducer(reducer, {
     items: initialItems,
