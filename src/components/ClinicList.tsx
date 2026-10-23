@@ -7,9 +7,6 @@ export interface ClinicItem {
   status: ClinicStatus;
   score: number;
 }
-export interface ClinicListProps {
-  heading?: string;
-  initialItems?: ClinicItem[];
   onSelect?: (item: ClinicItem) => void;
 }
 type Action =

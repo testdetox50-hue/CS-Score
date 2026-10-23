@@ -4,9 +4,7 @@ export type AppointmentStatus = "queued" | "running" | "failed";
 export interface AppointmentItem {
   id: number;
   title: string;
-  status: AppointmentStatus;
-  score: number;
-}
+  
 export interface AppointmentTableProps {
   heading?: string;
   initialItems?: AppointmentItem[];
