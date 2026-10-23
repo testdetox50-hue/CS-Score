@@ -66,7 +66,12 @@ export function ContactCard({ heading = "Contact Card", initialItems = [], onSel
     [visible],
   );
 
+  const handleAdd = useCallback(() => {
+    const id = state.nextId;
+    dispatch({ type: "add", item: { id, title: `Contact #${id}`, status: "draft", score: (id * 7) % 100 } });
+  }, [state.nextId]);
 
+  return (
     <section className="contact-card" aria-label={heading}>
       <header>
         <h2>{heading}</h2>
