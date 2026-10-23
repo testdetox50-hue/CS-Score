@@ -97,4 +97,4 @@ export function FileCard({ heading = "File Card", initialItems = [], onSelect }:
   );
 }
 
-export default FileCard;
+ default FileCard;

@@ -4,11 +4,7 @@ export type AuditStatus = "draft" | "active" | "archived";
 export interface AuditItem {
   id: number;
   title: string;
-  status: AuditStatus;
-  score: number;
-}
-export interface AuditCardProps {
-  heading?: string;
+ 
   initialItems?: AuditItem[];
   onSelect?: (item: AuditItem) => void;
 }
