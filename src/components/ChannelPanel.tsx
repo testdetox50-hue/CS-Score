@@ -74,7 +74,13 @@ export function ChannelPanel({ heading = "Channel Panel", initialItems = [], onS
   return (
     <section className="channel-panel" aria-label={heading}>
       <header>
-        on key={s} value={s}>{s}</option>)}
+        <h2>{heading}</h2>
+        <p>
+          {channelCount} shown, average score {averageScore.toFixed(1)}
+        </p>
+        <select value={state.filter} onChange={(e) => dispatch({ type: "filter", status: e.target.value as ChannelStatus | "all" })}>
+          <option value="all">all</option>
+          {ORDER.map((s) => <option key={s} value={s}>{s}</option>)}
         </select>
         <button type="button" onClick={handleAdd} disabled={state.items.length >= LIMIT}>Add channel</button>
       </header>

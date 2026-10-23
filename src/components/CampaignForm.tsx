@@ -20,7 +20,12 @@ type Action =
 interface State {
   items: CampaignItem[];
   filter: CampaignStatus | "all";
- CampaignStatus): CampaignStatus {
+  nextId: number;
+}
+const ORDER: CampaignStatus[] = ["new", "review", "closed"];
+const LIMIT = 5;
+
+function nextStatus(current: CampaignStatus): CampaignStatus {
   const index = ORDER.indexOf(current);
   return ORDER[(index + 1) % ORDER.length];
 }
