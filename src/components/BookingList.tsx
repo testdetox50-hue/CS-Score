@@ -56,7 +56,14 @@ export function BookingList({ heading = "Booking List", initialItems = [], onSel
     nextId: initialItems.length + 1,
   });
 
-  c
+  const visible = useMemo(
+    () => state.items.filter((it) => state.filter === "all" || it.status === state.filter),
+    [state.items, state.filter],
+  );
+  const bookingCount = visible.length;
+  const averageScore = useMemo(
+    () => (visible.length ? visible.reduce((sum, it) => sum + it.score, 0) / visible.length : 0),
+    [visible],
   );
 
   const handleAdd = useCallback(() => {
