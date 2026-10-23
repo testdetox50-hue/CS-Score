@@ -39,7 +39,16 @@ function reducer(state: State, action: Action): State {
       return { ...state, items: state.items.filter((it) => it.id !== action.id) };
     case "cycle":
       return {
-        ...sta
+        ...state,
+        items: state.items.map((it) =>
+          it.id === action.id ? { ...it, status: nextStatus(it.status) } : it,
+        ),
+      };
+    case "filter":
+      return { ...state, filter: action.status };
+  }
+}
+
 export function BookingList({ heading = "Booking List", initialItems = [], onSelect }: BookingListProps) {
   const [state, dispatch] = useReducer(reducer, {
     items: initialItems,
